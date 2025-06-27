@@ -233,7 +233,7 @@ with aba4:
         st.markdown(
             """
             <div style='text-align: justify; font-size: 18px;'>
-            Contagens das células leucocitárias entre diferentes estados reprodutivos (Cycling, T1, T2, T3) e populações ( e Tsimane).
+            Contagens das células leucocitárias entre diferentes estados reprodutivos (Cycling, T1, T2, T3) e populações (EUA e Tsimane).
             As violas representam a distribuição dos dados, enquanto os círculos pretos indicam a média para cada grupo.
             </div>
             """,
