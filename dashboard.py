@@ -218,8 +218,8 @@ with aba4:
 
         st.markdown(
             """
-            <div style='text-align: justify; font-size: 15px;'>
-            🔍 Contagens das células leucocitárias entre diferentes estados reprodutivos (Cycling, T1, T2, T3) e populações (NHANES e THLHP).
+            <div style='text-align: justify; font-size: 18px;'>
+            Contagens das células leucocitárias entre diferentes estados reprodutivos (Cycling, T1, T2, T3) e populações (NHANES e THLHP).
             As violas representam a distribuição dos dados, enquanto os círculos pretos indicam a média para cada grupo.
             </div>
             """,
@@ -287,7 +287,17 @@ with aba4:
 
     with col4:
 
-        st.subheader("Resultados do teste U: Grupos com Menores Contagens")
+        st.subheader("Resultados do teste U: Grupos com Menores Contagens Leiucocitárias")
+        st.markdown(
+            """
+            <div style='text-align: justify; font-size: 18px;'>
+            A tabela abaixo resume os resultados de testes estatísticos U de Mann-Whitney aplicados às contagens de células imunológicas.
+            Para cada tipo celular e estado reprodutivo, é indicada a população com menor valor médio.
+            Quando não há diferença estatística significativa entre os grupos, aparece a indicação <i>“Iguais”</i>.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
         st.image("assets/imagem_tabela_menor_contagem.png", 
                  caption="População com menor contagem média para cada tipo celular e estado reprodutivo",
                  width=500)
