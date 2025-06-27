@@ -18,11 +18,11 @@ st.set_page_config(
 # --- CRIAR ABAS ---
 aba1, aba2, aba3, aba4, aba5, aba6 = st.tabs([
     "📌", 
-    "🧬 Introdução", 
-    "📊 Conjunto de dados", 
-    "📈 Análises", 
-    "🤖 Estimando Neutrófilos",
-    "📌 Considerações Finais"
+    "Introdução", 
+    "Conjunto de dados", 
+    "Análises", 
+    "Estimando Neutrófilos",
+    "Considerações Finais"
 ])
 
 
@@ -49,9 +49,9 @@ with aba2:
             comparando populações expostas a níveis contrastantes de microrganismos. 
         </div>""", unsafe_allow_html=True)
 
-        st.write(""" <div style='text-align: justify; font-size: 18px;'> <br>
-            👩🏽‍🦱 Mulheres Tsimane, de uma comunidade indígena na floresta boliviana, com alta exposição a patógenos naturais e fertilidade tradicional. <br>
-            👩🏼 Mulheres nos EUA, vivendo em ambiente urbano com baixa exposição microbiana. <br> <br>
+        st.write(""" <div style='text-align: justify; font-size: 18px;'> 
+             Mulheres Tsimane, de uma comunidade indígena na floresta boliviana, com alta exposição a patógenos naturais e fertilidade tradicional. <br>
+             Mulheres nos EUA, vivendo em ambiente urbano com baixa exposição microbiana. <br> <br>
             O foco está na análise de seis tipos de células imunológicas:
         </div>""", unsafe_allow_html=True)
 
@@ -67,6 +67,11 @@ with aba2:
             st.markdown("<div style='font-size: 18px;'>- <b>Monócitos</b></div>", unsafe_allow_html=True)
             st.markdown("<div style='font-size: 18px;'>- <b>Eosinófilos</b></div>", unsafe_allow_html=True)
             st.markdown("<div style='font-size: 18px;'>- <b>Basófilos</b></div>", unsafe_allow_html=True)
+
+        st.write("""<div style='text-align: justify; font-size: 18px;'>
+                 O objetivo  é identificar se existem diferenças reais entre as populações analisadas, 
+            e compreender como fatores ambientais e sociais podem afetar o comportamento imunológico em diferentes momentos do ciclo reprodutivo.
+        </div>""", unsafe_allow_html=True)
 
     with col2:
         st.image("assets/imagem_tipo_celulas.png", 
@@ -189,7 +194,7 @@ with aba4:
 
     
     with col2:
-        st.subheader("K-means e PCA: Separação Populacional")
+        st.subheader("K-means e PCA: Separação por Tipo Populacional")
         st.image("assets/agrupamentos_pca.png", 
                  caption="Agrupamentos K-means com projeção PCA",
                  width=500)
