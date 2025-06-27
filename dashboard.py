@@ -158,7 +158,16 @@ with aba4:
             (data.BAS < 400) &
             (data.EOS < 5000)
         )
-        return data.loc[cond]
+
+        data = data.loc[cond]
+
+        # Substituindo valores da coluna Population
+        data['Population'] = data['Population'].replace({
+            'THLHP': 'Tsimane',
+            'NHANES': 'EUA'
+        })
+
+        return data
 
     dados = load_data()
 
@@ -224,7 +233,7 @@ with aba4:
         st.markdown(
             """
             <div style='text-align: justify; font-size: 18px;'>
-            Contagens das células leucocitárias entre diferentes estados reprodutivos (Cycling, T1, T2, T3) e populações (NHANES e THLHP).
+            Contagens das células leucocitárias entre diferentes estados reprodutivos (Cycling, T1, T2, T3) e populações ( e Tsimane).
             As violas representam a distribuição dos dados, enquanto os círculos pretos indicam a média para cada grupo.
             </div>
             """,
@@ -240,7 +249,7 @@ with aba4:
         )
 
         repstatus_order = ['Cycling', 'T1', 'T2', 'T3']
-        population_order = ['NHANES', 'THLHP']
+        population_order = ['EUA', 'Tsimane']
 
         dados_long['RepStatus'] = pd.Categorical(dados_long['RepStatus'], categories=repstatus_order, ordered=True)
         dados_long['Population'] = pd.Categorical(dados_long['Population'], categories=population_order, ordered=True)
@@ -271,7 +280,7 @@ with aba4:
                 for k, pop in enumerate(population_order):
                     pop_data = subset[(subset['RepStatus'] == status) & (subset['Population'] == pop)]
                     mean_val = pop_data['Cell_Count'].mean()
-                    offset = -0.05 if pop == 'NHANES' else 0.05
+                    offset = -0.05 if pop == 'EUA' else 0.05
                     ax.scatter(j + offset, mean_val, color='black', s=50, marker='o', zorder=10,
                                edgecolor='white', linewidth=0.8)
 
@@ -441,8 +450,8 @@ with aba6:
         "1. As duas populações estudadas apresentam perfis distintos de contagem leucocitária, "
         "refletindo provavelmente diferenças em seus ambientes e condições de vida.",
 
-        "2. O estado reprodutivo (especialmente a gravidez) demonstra influência significativa "
-        "nos parâmetros imunológicos analisados.",
+        "2. O estado reprodutivo (especialmente a gravidez) aprenta ter influência significativa "
+        "nos parâmetros imunológicos analisados. Hipótesis precisam ser testadas para entender melhor essa relação.",
 
         "3. A abordagem de machine learning mostrou-se eficaz para modelar as complexas interações "
         "entre variáveis biológicas, antropométricas e populacionais.",
